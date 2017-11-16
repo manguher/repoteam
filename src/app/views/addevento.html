@@ -1,0 +1,64 @@
+<div class="container">
+	<h3>{{titulo}}</h3>
+	<div class="col-sm-6 col-sm-offset-3">
+		<form [formGroup]="formularioEvento" (ngSubmit)="onSubmit(formularioEvento)">
+			<div class="row rowPaddingBottom">
+				<label for="ddlTipoDeporte">Deporte</label>
+				<select formControlName="deporte" class="form-control" placeholder="Seleccione Deporte">
+					<option *ngFor="let deporte of lstDeporte" [value]="deporte.Id">
+						{{deporte.Nombre}}
+					</option>
+				</select>
+			</div>
+			<div class="row rowPaddingBottom">
+				<mat-form-field class="example-full-width">
+					<div class="divDate">
+						<label for="fecha">Fecha</label>
+						<input matInput [matDatepicker]="picker" formControlName="fecha" class="form-control" placeholder="Fecha">
+					</div>
+					<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+					<mat-datepicker touchUi="true" #picker></mat-datepicker>
+				</mat-form-field>
+
+			</div>
+			<div class="row rowPaddingBottom">
+				<label for="ddlTipoDeporte">Tipo Cancha</label>
+				<select formControlName="tipoCancha" class="form-control" placeholder="Seleccione Tipo Cancha">
+					<option *ngFor="let cancha of lstTipoCancha" [value]="cancha.id">
+						{{cancha.nombre}}
+					</option>
+				</select>
+			</div>
+			<div class="row rowPaddingBottom">
+				<label for="colorCamiseta">Color Camiseta</label>
+				<input type="text" formControlName="colorCamiseta" class="form-control">
+			</div>
+			<div class="row rowPaddingBottom">
+				<label for="ddlNiveles">Niveles</label>
+				<select formControlName="niveles" id="ddlNiveles" class="form-control" placeholder="Seleccione Deporte">
+					<option *ngFor="let nivel of lstNiveles" [value]="nivel.id">
+						{{nivel.label}}
+					</option>
+				</select>
+			</div>
+			<div class="row rowPaddingBottom">
+				<label for="txtCuotaArriendo">Cuota arriendo</label>
+				<input type="number" formControlName="cuotaArriendo" class="form-control">
+			</div>
+			<div class="row rowPaddingBottom">
+				<label for="ddlRecintos">Recintos</label>
+				<mat-form-field class="example-full-width">
+					<input type="text" placeholder="Buscar" class="form-control" aria-label="Assignee" matInput formControlName="recintos" [matAutocomplete]="auto">
+					<mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn.bind(this)">
+						<mat-option *ngFor="let recinto of filterRecintos | async" [value]="recinto">
+							{{ recinto.nombre }}
+						</mat-option>
+					</mat-autocomplete>
+				</mat-form-field>
+			</div>
+			<div class="row">
+				<button type="submit" class="btn-primary form-control" style="float:right">Guardar</button>
+			</div>
+		</form>
+	</div>
+</div>
