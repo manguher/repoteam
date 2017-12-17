@@ -78,7 +78,9 @@ export class AgregarEventoComponent {
 		this.LoadNiveles();
 		this.LoadRecintos();
 
-		this.filterRecintos = this.formularioEvento.get('recintos').valueChanges
+		this.filterRecintos = this.formularioEvento
+			.get('recintos')
+			.valueChanges
 			.startWith(null)
 			.map(recinto => recinto && typeof recinto === 'object' ? recinto.nombre : recinto)
 			.map(nombre => nombre ? this.filter(nombre) : this.lstRecintos.slice());
@@ -109,22 +111,11 @@ export class AgregarEventoComponent {
 	}
 
 	LoadRecintos() {
-		this._tgeRecintos.getAllRecintos().subscribe(
-			data => {
-				data.forEach(element => {
-					this.lstRecintos.push(element);
-				});
-			},
-			error => {
-
-				console.log(error)
-			}
-		);
+		this.lstRecintos = this._tgeRecintos.getAllRecintos();
 	}
 
 	filter(recintoParams: string): Recinto[] {
-		console.log(recintoParams);
-		console.log(this.lstRecintos);
+		console.log(this.lstRecintos[0]);
 		return this.lstRecintos.filter(recinto =>
 			recinto.Nombre.toLowerCase().indexOf(recintoParams.toLowerCase()) === 0);
 	}
@@ -159,5 +150,6 @@ export class AgregarEventoComponent {
 		// 		console.log(error)
 		// 	}
 		// );
+		let hola = 0;
 	}
 }

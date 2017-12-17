@@ -27,36 +27,46 @@ export class TgeServices {
 	getDeporte(codDeporte: string): Deporte[] {
 
 		let lstDeporte: Deporte[] = [];
-		let deportes = this._http.get(this._url + codDeporte).map(res => res.json());
-		deportes.forEach(element => {
-			let deporte: Deporte = new Deporte();
-			deporte.Id = element.id;
-			deporte.Codigo = element.codigo;
-			deporte.CodTabGeneral = element.CodTabGeneral;
-			deporte.CodTabPartPadre = element.codTabPartPadre;
-			deporte.Nombre = element.nombre;
-			deporte.Descripcion = element.descripcion;
-			deporte.Estado = element.estado;
-			lstDeporte.push(deporte);
-		});
+		let deportes = this._http.get(this._url + codDeporte).map(res => res.json())
+			.subscribe(data => {
+
+				data.forEach(item => {
+					let deporte: Deporte = new Deporte();
+					deporte.Id = item.id;
+					deporte.Codigo = item.codigo;
+					deporte.CodTabGeneral = item.CodTabGeneral;
+					deporte.CodTabPartPadre = item.codTabPartPadre;
+					deporte.Nombre = item.nombre;
+					deporte.Descripcion = item.descripcion;
+					deporte.Estado = item.estado;
+					lstDeporte.push(deporte);
+				});
+			});
 
 		return lstDeporte;
 	}
 
 	getTipoCancha(codTipoCancha: string): TipoCancha[] {
 		let lstTipoCanchas: TipoCancha[] = [];
-		let tipoCanchas = this._http.get(this._url + codTipoCancha).map(res => res.json());
+		let tipoCanchas = this._http.get(this._url + codTipoCancha).map(res => res.json())
+			.subscribe(data => {
+				data.forEach(element => {
 
-		tipoCanchas.forEach(element => {
-			let tipoCancha: TipoCancha = new TipoCancha();
-			tipoCancha.Id = element.id;
-			tipoCancha.Codigo = element.codigo;
-			tipoCancha.Nombre = element.nombre;
-			tipoCancha.Descripcion = element.descripcion;
-			tipoCancha.CodTabGeneral = element.codTabGeneral;
-			tipoCancha.CodTabPartPadre = element.codTabPartPadre;
-			lstTipoCanchas.push(tipoCancha);
-		});
+					let tipoCancha: TipoCancha = new TipoCancha();
+
+					tipoCancha.Id = element.id;
+					tipoCancha.Codigo = element.codigo;
+					tipoCancha.Nombre = element.nombre;
+					tipoCancha.Descripcion = element.descripcion;
+					tipoCancha.CodTabGeneral = element.codTabGeneral;
+					tipoCancha.CodTabPartPadre = element.codTabPartPadre;
+
+					lstTipoCanchas.push(tipoCancha);
+				});
+			},
+			error => {
+				console.log(error)
+			});
 
 		return lstTipoCanchas;
 	}
