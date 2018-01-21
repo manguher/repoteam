@@ -23,6 +23,7 @@ export class EventosServices {
 	saveEvento(evento: Evento) {
 		let jsonEvento = JSON.stringify(evento);
 		let params = jsonEvento;
+		console.log(params);
 		let headers = new Headers({ 'Content-Type': 'application/json' })
 		return this._http.post(this._urlSaveEvento, params, { headers: headers }).map(res => res.json());
 	}

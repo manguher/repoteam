@@ -34,10 +34,8 @@ export class TgeServices {
 					let deporte: Deporte = new Deporte();
 					deporte.Id = item.id;
 					deporte.Codigo = item.codigo;
-					deporte.CodTabGeneral = item.CodTabGeneral;
-					deporte.CodTabPartPadre = item.codTabPartPadre;
 					deporte.Nombre = item.nombre;
-					deporte.Descripcion = item.descripcion;
+					deporte.CodTabGeneral = item.codTabGeneral;
 					deporte.Estado = item.estado;
 					lstDeporte.push(deporte);
 				});
@@ -57,12 +55,11 @@ export class TgeServices {
 					tipoCancha.Id = element.id;
 					tipoCancha.Codigo = element.codigo;
 					tipoCancha.Nombre = element.nombre;
-					tipoCancha.Descripcion = element.descripcion;
 					tipoCancha.CodTabGeneral = element.codTabGeneral;
-					tipoCancha.CodTabPartPadre = element.codTabPartPadre;
-
+					tipoCancha.Estado = element.estado
 					lstTipoCanchas.push(tipoCancha);
 				});
+
 			},
 			error => {
 				console.log(error)

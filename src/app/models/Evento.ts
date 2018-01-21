@@ -12,6 +12,7 @@ export class Evento {
 	private recinto: Recinto;
 	private cuotaArriend: number;
 	private estado: number;
+	private fecha: Date;
 
 	public set Id(id: string) { this.id = id; }
 	public get Id(): string { return this.id }
@@ -30,6 +31,9 @@ export class Evento {
 
 	public set Recinto(recinto: Recinto) { this.recinto = recinto; }
 	public get Recinto(): Recinto { return this.recinto }
+
+	public set Fecha(fecha: Date) { this.fecha = fecha; }
+	public get Fecha(): Date { return this.fecha; }
 
 	public set cuotaArriendo(cuota: number) { this.cuotaArriend = cuota }
 	public get cuotaArriendo(): number { return this.cuotaArriend }

@@ -26,12 +26,12 @@ import {
 
 @NgModule({
 	imports:
-	[
-		MatInput,
-		MatAutocompleteModule,
-		MatSelect,
-		MatSelectTrigger
-	],
+		[
+			MatInput,
+			MatAutocompleteModule,
+			MatSelect,
+			MatSelectTrigger
+		],
 	declarations: [FechaComponent],
 })
 @Component({
@@ -94,7 +94,9 @@ export class AgregarEventoComponent {
 			colorCamiseta: ['', [Validators.required, Validators.minLength(15)]],
 			niveles: ['', Validators.required],
 			recintos: ['', Validators.required],
-			cuotaArriendo: ['', Validators.required]
+			cuotaArriendo: ['', Validators.required],
+			horaDesde: ['', Validators.required],
+			horaHasta: ['', Validators.required]
 		})
 	}
 
@@ -115,7 +117,6 @@ export class AgregarEventoComponent {
 	}
 
 	filter(recintoParams: string): Recinto[] {
-		console.log(this.lstRecintos[0]);
 		return this.lstRecintos.filter(recinto =>
 			recinto.Nombre.toLowerCase().indexOf(recintoParams.toLowerCase()) === 0);
 	}
@@ -133,23 +134,21 @@ export class AgregarEventoComponent {
 		var nivel = this.formularioEvento.get('niveles').value;
 		var recinto = this.formularioEvento.get('recintos').value;
 		var cuota = this.formularioEvento.get('cuotaArriendo').value;
+		var horaDesde = this.formularioEvento.get('horaDesde').value;
+		var horaHasta = this.formularioEvento.get('horaHasta').value;
 
 		let newEvento: Evento = new Evento();
-		newEvento.Deporte = deporte[0];
-		newEvento.Desde = fecha;
-		newEvento.Recinto = recinto;
-		newEvento.cuotaArriendo = cuota;
 
-		let jsonEvento = JSON.stringify(newEvento);
-		console.log(jsonEvento);
-		// this._eventoService.saveEvento(newEvento).subscribe(
-		// 	data => {
-		// 		console.log("Evento Registrado exitosamente");
-		// 	},
-		// 	error => {
-		// 		console.log(error)
-		// 	}
-		// );
-		let hola = 0;
+		newEvento.Deporte = deporte[0];
+		newEvento.TipoCancha = tipoCancha[0];
+		newEvento.Desde = horaDesde;
+		newEvento.hasta = horaHasta;
+		newEvento.Recinto = recinto;
+		newEvento.Fecha = fecha;
+		newEvento.cuotaArriendo = cuota;
+		newEvento.Estado = 1; // _TODO: Enumerador estado evento 
+
+
+		let saveEvento = this._eventoService.saveEvento(newEvento);
 	}
 }

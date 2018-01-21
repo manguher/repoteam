@@ -14,11 +14,8 @@ export class TipoCancha {
 	set Nombre(nombre: string) { this.nombre = nombre; }
 	get Nombre(): string { return this.nombre }
 
-	set Codigo(id: string) { this.id = id; }
+	set Codigo(codigo: string) { this.codigo = codigo; }
 	get Codigo(): string { return this.codigo }
-
-	set Descripcion(descripcion: string) { this.descripcion = descripcion; }
-	get Descripcion(): string { return this.descripcion }
 
 	set CodTabGeneral(codTabGeneral: string) { this.codTabGeneral = codTabGeneral; }
 	get CodTabGeneral(): string { return this.codTabGeneral }

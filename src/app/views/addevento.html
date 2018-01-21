@@ -11,15 +11,25 @@
 				</select>
 			</div>
 			<div class="row rowPaddingBottom">
-				<mat-form-field class="example-full-width">
-					<div class="divDate">
-						<label for="fecha">Fecha</label>
-						<input matInput [matDatepicker]="picker" formControlName="fecha" class="form-control" placeholder="Fecha">
-					</div>
-					<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-					<mat-datepicker touchUi="true" #picker></mat-datepicker>
-				</mat-form-field>
-
+				<div class="col-md-6 row-no-padding">
+					<mat-form-field class="example-full-width">
+						<div class="divDate">
+							<label for="fecha">Fecha</label>
+							<input matInput [matDatepicker]="picker" formControlName="fecha" class="form-control" placeholder="Fecha">
+						</div>
+						<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+						<mat-datepicker touchUi="true" #picker></mat-datepicker>
+					</mat-form-field>
+				</div>
+				<div class="col-md-2 row-no-padding">
+					<label for="HoraDesde">Hora Desde</label>
+					<input id="HoraDesde" type="time" formControlName="horaDesde" class="form-control">
+				</div>
+				<div class="col-md-1"></div>
+				<div class="col-md-2 row-no-padding">
+					<label for="HoraDesde">Hora Desde</label>
+					<input id="HoraHasta" type="time" formControlName="horaHasta" class="form-control">
+				</div>
 			</div>
 			<div class="row rowPaddingBottom">
 				<label for="ddlTipoDeporte">Tipo Cancha</label>

@@ -10,7 +10,7 @@ export class Comuna {
 
 
 	set Id(id: string) { this.id = id; }
-	get d(): string { return this.id }
+	get Id(): string { return this.id }
 
 	set Codigo(id: string) { this.id = id; }
 	get Codigo(): string { return this.codigo }

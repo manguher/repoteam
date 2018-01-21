@@ -5,6 +5,7 @@ export class Recinto {
 	private id: string;
 	private nombre: string;
 	private mailContacto: string;
+	private webpage: string;
 	private telefono1: number;
 	private telefono2: number;
 	private telefono3: number;
@@ -25,6 +26,10 @@ export class Recinto {
 
 	set MailContacto(mailContacto: string) { this.mailContacto = mailContacto; }
 	get MailContacto(): string { return this.mailContacto }
+
+	set WebPage(webPage: string) { this.webpage = webPage; }
+	get WebPage(): string { return this.webpage }
+
 
 	set Telefono1(telefono1: number) { this.telefono1 = telefono1; }
 	get Telefono1(): number { return this.telefono1 }

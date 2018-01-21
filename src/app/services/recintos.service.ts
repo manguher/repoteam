@@ -20,17 +20,19 @@ export class RecintoServices {
                 data.forEach(element => {
 
                     let recinto: Recinto = new Recinto();
-                    recinto.Comuna = element.comuna;
-                    recinto.Direccion = element.direccion;
-                    recinto.Estado = element.estado;
                     recinto.Id = element.id;
-                    recinto.Interseccion = element.interseccion;
+                    recinto.Nombre = element.nombre;
+                    recinto.MailContacto = element.mailContacto;
+                    recinto.WebPage = element.webpage
+                    recinto.Telefono1 = element.telefono1;
+                    recinto.Telefono2 = element.telefono2;
+                    recinto.Telefono3 = element.telefono3;
                     recinto.Latitud = element.latitud;
                     recinto.Longitud = element.longitud;
-                    recinto.MailContacto = element.MailContacto;
-                    recinto.Nombre = element.nombre;
+                    recinto.Direccion = element.direccion;
+                    recinto.Comuna = element.comuna;
                     recinto.Observacion = element.observacion;
-                    recinto.Observacion = element.observacion;
+                    recinto.Estado = element.estado;
                     lstRecintos.push(recinto);
 
                 });
