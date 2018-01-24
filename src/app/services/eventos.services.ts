@@ -11,9 +11,9 @@ export class EventosServices {
 	private _url: string;
 	private _urlSaveEvento: string;
 
-	constructor(public _http: Http) {
+	constructor(private _http: Http) {
 		this._url = Constants.urlTpart;
-		this._url = Constants.urlSaveEvento;
+		this._urlSaveEvento = Constants.urlSaveEvento;
 	}
 
 	getEventoById(idEventos: number) {
@@ -21,10 +21,28 @@ export class EventosServices {
 	}
 
 	saveEvento(evento: Evento) {
-		let jsonEvento = JSON.stringify(evento);
-		let params = jsonEvento;
-		console.log(params);
+
+		let eventoJson = JSON.stringify(evento)
+		const headers = new Headers({ 'Content-Type': 'application/json' });
+
+		return this._http.post("/evento/registrar", eventoJson, { headers: headers })
+			.subscribe(
+			() => { },
+			err => console.log(err))
+		/*
+		// 		let headers = new Headers();
+		// 		headers.append('Content-Type', 'application/json; charset=utf-8');
 		let headers = new Headers({ 'Content-Type': 'application/json' })
-		return this._http.post(this._urlSaveEvento, params, { headers: headers }).map(res => res.json());
+
+		return this._http.post(this._urlSaveEvento, JSON.stringify(evento), { headers: headers }).subscribe(
+			() => { },
+			err => console.log(err)
+		);
+		*/
+
+		// let jsonEvento = JSON.stringify(evento);
+		// let params = jsonEvento;
+		// let headers = new Headers({ 'Content-Type': 'application/json' })
+		// return this._http.post(this._urlSaveEvento, params, { headers: headers }).map(res => res.json());
 	}
 }

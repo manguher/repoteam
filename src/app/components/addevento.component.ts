@@ -148,7 +148,6 @@ export class AgregarEventoComponent {
 		newEvento.cuotaArriendo = cuota;
 		newEvento.Estado = 1; // _TODO: Enumerador estado evento 
 
-
 		let saveEvento = this._eventoService.saveEvento(newEvento);
 	}
 }
