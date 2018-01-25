@@ -26,23 +26,6 @@ export class EventosServices {
 		const headers = new Headers({ 'Content-Type': 'application/json' });
 
 		return this._http.post("/evento/registrar", eventoJson, { headers: headers })
-			.subscribe(
-			() => { },
-			err => console.log(err))
-		/*
-		// 		let headers = new Headers();
-		// 		headers.append('Content-Type', 'application/json; charset=utf-8');
-		let headers = new Headers({ 'Content-Type': 'application/json' })
-
-		return this._http.post(this._urlSaveEvento, JSON.stringify(evento), { headers: headers }).subscribe(
-			() => { },
-			err => console.log(err)
-		);
-		*/
-
-		// let jsonEvento = JSON.stringify(evento);
-		// let params = jsonEvento;
-		// let headers = new Headers({ 'Content-Type': 'application/json' })
-		// return this._http.post(this._urlSaveEvento, params, { headers: headers }).map(res => res.json());
+			.map(res => res.json());
 	}
 }

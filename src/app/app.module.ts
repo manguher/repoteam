@@ -1,6 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -16,37 +13,97 @@ import { AgregarEventoComponent } from './components/addevento.component';
 import { FechaComponent } from './components/shared/fecha/fecha.component';
 
 //Material
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
 import {
   MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatDialogModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+  MatStepperModule,
 } from '@angular/material';
 
 @NgModule({
   declarations:
-  [
-    AppComponent,
-    HomeComponent,
-    ErrorComponent,
-    AgregarEventoComponent,
-    FechaComponent
-  ],
+    [
+      AppComponent,
+      HomeComponent,
+      ErrorComponent,
+      AgregarEventoComponent,
+      FechaComponent
+    ],
   imports:
-  [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpModule,
-    routing,
-    BrowserAnimationsModule,
-    MatAutocompleteModule,
-    MatDatepickerModule,
-    MatNativeDateModule
-  ],
+    [
+      BrowserModule,
+      FormsModule,
+      ReactiveFormsModule,
+      HttpModule,
+      routing,
+      BrowserAnimationsModule,
+      MatAutocompleteModule,
+      MatButtonModule,
+      MatButtonToggleModule,
+      MatCardModule,
+      MatCheckboxModule,
+      MatChipsModule,
+      MatDatepickerModule,
+      MatDialogModule,
+      MatExpansionModule,
+      MatGridListModule,
+      MatIconModule,
+      MatInputModule,
+      MatListModule,
+      MatMenuModule,
+      MatNativeDateModule,
+      MatPaginatorModule,
+      MatProgressBarModule,
+      MatProgressSpinnerModule,
+      MatRadioModule,
+      MatRippleModule,
+      MatSelectModule,
+      MatSidenavModule,
+      MatSliderModule,
+      MatSlideToggleModule,
+      MatSnackBarModule,
+      MatSortModule,
+      MatTableModule,
+      MatTabsModule,
+      MatToolbarModule,
+      MatTooltipModule,
+      MatStepperModule
+    ],
   providers:
-  [
-    appRoutingProviders
-  ],
+    [
+      appRoutingProviders
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

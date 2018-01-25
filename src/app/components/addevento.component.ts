@@ -17,26 +17,14 @@ import { FechaComponent } from '../components/shared/fecha/fecha.component';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
 
-import {
-	MatInput,
-	MatAutocompleteModule,
-	MatSelectTrigger,
-	MatSelect
-} from '@angular/material';
-
 @NgModule({
-	imports:
-		[
-			MatInput,
-			MatAutocompleteModule,
-			MatSelect,
-			MatSelectTrigger
-		],
+	imports: [],
 	declarations: [FechaComponent],
 })
 @Component({
 	selector: 'evento-add',
-	templateUrl: '../views/addevento.html',
+	templateUrl: '../views/add-evento/addevento.html',
+	styleUrls: ['../views/add-evento/addEvento.css'],
 	providers: [
 		EventosServices,
 		TgeServices,
@@ -91,7 +79,7 @@ export class AgregarEventoComponent {
 			deporte: ['', Validators.required],
 			fecha: ['', [Validators.required, Validators.required]],
 			tipoCancha: ['', [Validators.required, Validators.required]],
-			colorCamiseta: ['', [Validators.required, Validators.minLength(15)]],
+			colorCamiseta: ['', [Validators.required, Validators.minLength(4)]],
 			niveles: ['', Validators.required],
 			recintos: ['', Validators.required],
 			cuotaArriendo: ['', Validators.required],
@@ -148,6 +136,10 @@ export class AgregarEventoComponent {
 		newEvento.cuotaArriendo = cuota;
 		newEvento.Estado = 1; // _TODO: Enumerador estado evento 
 
-		let saveEvento = this._eventoService.saveEvento(newEvento);
+		let saveEvento = this._eventoService.saveEvento(newEvento)
+			.subscribe(
+			data => console.log(data),
+			err => console.log(err)
+			);
 	}
 }
