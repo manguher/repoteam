@@ -11,6 +11,9 @@ import { HomeComponent } from './components/home.component';
 import { ErrorComponent } from './components/error.component';
 import { AgregarEventoComponent } from './components/addevento.component';
 import { FechaComponent } from './components/shared/fecha/fecha.component';
+import { SiteHeaderComponent } from './_layout/site-header/site-header.component';
+import { SiteLayoutComponent } from './_layout/site-layout/site-layout.component';
+
 
 //Material
 import { BrowserModule } from '@angular/platform-browser';
@@ -58,7 +61,9 @@ import {
       HomeComponent,
       ErrorComponent,
       AgregarEventoComponent,
-      FechaComponent
+      FechaComponent,
+      SiteHeaderComponent,
+      SiteLayoutComponent
     ],
   imports:
     [
